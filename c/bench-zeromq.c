@@ -23,8 +23,9 @@ int bench(const unsigned char *name, double benchtime) {
 }
 
 int main (void) {
-  push = zsock_new_push ("inproc://example");
-  pull = zsock_new_pull ("inproc://example");
+  push = zsock_new_push ("@tcp://127.0.0.1:5560");
+  int rc = zsock_bind (push, "tcp://127.0.0.1:%d", 5560);
+  pull = zsock_new_pull (">tcp://127.0.0.1:5560");
 
   double benchtime = 10 * CLOCKS_PER_SEC; // 10s
   if (bench("BenchmarkZeroMQ-C", benchtime) > 0) {

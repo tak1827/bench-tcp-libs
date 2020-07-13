@@ -11,7 +11,7 @@ sudo apt-get install libczmq-dev -y
 ```
 gcc -o c/bench-zeromq c/bench-zeromq.c -lczmq
 ./c/bench-zeromq
-BenchmarkZeroMQ-Zig:   49776   4977 loops/s   200900 ns/op
+BenchmarkZeroMQ-C:   76280   7628 loops/s   131095 ns/op
 ```
 
 ## ZeroMQ by zig

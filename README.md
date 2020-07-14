@@ -2,11 +2,11 @@
 Benchmarking tcp libs like ZeroMQ and nng by c and zig
 
 # Install
-```
-// Install ZeroMQ
+```bash
+// install ZeroMQ
 sudo apt-get install libczmq-dev -y
 
-// Install build tools for nng
+// install build tools for nng
 sudo apt install cmake -y
 sudo apt install ninja-build -y
 
@@ -33,7 +33,7 @@ BenchmarkZeroMQ-C:   76280   7628 loops/s   131095 ns/op
 ## ZeroMQ by zig
 ```bash
 zig build -Drelease-fast=true
-./zig-cache/bin/bench-tcp
+TCP_LIB=ZeroMQ ./zig-cache/bin/bench-tcp
 BenchmarkZeroMQ-Zig:   48232   4823 loops/s   207331 ns/op
 ```
 
@@ -45,4 +45,10 @@ gcc c/bench-nng.c -o c/bench-nng -lnng -pthread
 BenchmarkNNG-C:   116917   11691 loops/s   85530 ns/op
 
 kill $server # stop server
+```
+
+## nng by zig
+```bash
+zig build -Drelease-fast=true
+TCP_LIB=nng ./zig-cache/bin/bench-tcp
 ```
